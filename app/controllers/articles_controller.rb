@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :article, only: [:edit, :show, :update, :destroy]
   def index
-    @tasks = Article.all
+    @articles = Article.all
   end
 
   def show

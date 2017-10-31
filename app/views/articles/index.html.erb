@@ -1,2 +1,46 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Wikinimous</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="<%= new_article_path %>">New Article</a></li>
+        <li><a href="#">pointless link</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="banner header">
+</div>
+<div class="container">
+  <div class="row">
+    <% @articles.each do |article|  %>
+      <div class="col-xs-12 col-sm-6">
+        <div class="card article">
+          <div class="card-block">
+            <h3 class="card-title"><%= article.title %></h3>
+            <p class="card-text"><%= article.content %></p>
+            <a href="<%= article_path(article.id) %>" class="btn btn-primary bottomaligned">Read more</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
